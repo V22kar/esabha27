@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{%block content%}
+{%load crispy_forms_tags%}
+
+<div class="p-5">
+  <h1  style="color: darkgreen; text-align: center; font-family: cursive; font-size: xx-large;"><b> Details </b></h1>
+      <div class="card text-white bg-danger  mb-2" style="max-width: 550px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="/media/{{myprofile.pic}}" class="card-img" class="img-fluid" alt=" NO-PROFILE-PIC">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <ul style="list-style-type:square">
+                <li> <h5 class="card-title" ><b>Name:</b>   {{myprofile.name}}</h5></li>
+                <li>  <h6 class="card-title"><b>Gender:</b>     {{myprofile.gender}}</h6></li>
+                <li> <h6 class="card-title"><b>Age:</b>    {{myprofile.age}}</h6></li>
+                <li> <h6 class="card-title"><b>Status: </b>   {{myprofile.status}}</h6></li>
+                <li> <h6 class="card-title"><b>Mobile No:</b> {{myprofile.phone_no}}</h6></li>
+                <li>  <h6 class="card-title"><b>Address:</b>   {{myprofile.address}}</h6></li>
+                <li>  <h6 class="card-title"><b>About :</b> {{myprofile.description}}</h6></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+      <a class="btn btn-warning" href="/social/myprofile"> BACK </a>
+    </div>
+
+
+
+
+
+
+
+<!------
+    
+                        <h1><p><strong>Name:{{myprofile.name}} </strong></p>
+                        <h1><p><strong>Age:{{myprofile.age}} </strong></p>
+                <h1><p><strong>Address:{{myprofile.address}}</strong></p>
+                <h1><p><strong>Status:{{myprofile.status}} </strong></p>
+                    <h1><p><strong>Mobile No:{{myprofile.phone_no}}</strong></p>
+                <img class="img-fluid" src="/media/{{myprofile.pic}}" />
+         <a class="btn btn-dark" href="/social/myprofile"> back ..</a>
+            </h1>
+--->
+                       
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{%block content%}
+{%load crispy_forms_tags%}
+<main class="p-5">
+    <div class="row p-5 text-justify">
+        <div class="col">
+
+            <h1  style="color: darkgreen; text-align: center; font-family: cursive; font-size: xx-large;"><b> Registration Page </b></h1>
+            
+        </div>
+    </div>
+    <div>
+        <form enctype="multipart/form-data" method="post" style="background-color: gold;" >
+        {% csrf_token %}
+        {{form | crispy}}<br>
+        <input class="btn btn-primary" type="submit">
+        
+        
+        </form>
+    </div>
+</main>
+
+{% endblock %}

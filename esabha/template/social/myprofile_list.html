@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{%block content%}
+{%load crispy_forms_tags%}
+
+<div class="p-5">
+  <h1  style="color: darkgreen; text-align: center; font-family: cursive; font-size: xx-large;"><b>Profiles</b></h1>
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <input value="{{ request.GET.si }}" type="text" name="si" />
+         <input class="btn btn-dark" type="submit" value="search">
+    </form>
+
+    <table class="table table-dark">
+        <thead class="thead">
+          <tr class="table-danger">
+            <th scope="col"><b>User_Name</b></th>
+            <th scope="col"><b>Name</b></th>
+            <th scope="col"><b>Age</b></th>
+            <th scope="col"><b>Gender</b></th>
+            <th scope="col"><b>Information</b></th>
+            <th scope="col"><b>follow</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr> {% for n1 in myprofile_list %}
+            <th scope="row">{{n1}}</th>
+            <td><h6><b style="color: aqua;">   {{n1.name}}   </b></h6></td>
+            <td>          {{n1.age}}    </td>
+            <td>        {{n1.gender}}   </td>
+            <td>     <a href='/social/myprofile/{{n1.id}}' class="btn btn-success"> Read More </a></td>
+            {% if n1.followed %}
+            <td>  <a href='/social/myprofile/unfollow/{{n1.id}}' class="btn btn-danger"> Unfollow </a></td>
+            {% else %}
+            <td>  <a href='/social/myprofile/follow/{{n1.id}}' class="btn btn-success"> Follow </a></td>
+            {% endif %}
+          </tr> {% endfor %}
+        </tbody>
+      </table>
+      
+     <!---
+                {% for n1 in myprofile_list %}
+                    <h1>{{n1.name}} </h1> 
+                    <h1>{{n1.age}} </h1> 
+                    <h1>{{n1.gender}}</h1>
+                    <a href='/social/myprofile/{{n1.id}}' class="btn btn-success"> Read More..</a>
+                     {% if n1.followed %}
+                        <a href='/social/myprofile/unfollow/{{n1.id}}' class="btn btn-danger"> UNfollow..</a>
+                        {% else %}
+                    <a href='/social/myprofile/follow/{{n1.id}}' class="btn btn-success"> follow..</a>
+                    {% endif %}    
+                    {%endfor%}-->
+
+</div>
+                       
+
+{% endblock %}

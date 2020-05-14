@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="p-5">
+            <h1  style="color: darkgreen; text-align: center; font-family: cursive; font-size: xx-large;"><b>All Post</b></h1>
+
+            <form enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                 <a href="/social/mypost/create" class="btn btn-dark"><span>Create New Post</span></a>
+            </form>
+          </div>
+<div class="row p-5">
+            {% for n1 in mypost_list %}
+<div class="col-md-3">
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="/media/{{n1.pic}}" alt="Card image cap">
+                <div class="card-body">
+                  <h6 class="card-title"><b><i style="color:darkgreen;">Subject</i></b> : {{n1.subject}}</h6>
+                  <p class="card-text"><b><i style="color:darkgreen;">Message</i></b> : {{n1.msg}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"> <b>@</b> {{n1.cr_date}}</li>
+                  
+                  <li class="list-group-item"><b> <i style="color:darkgreen;"> By </i> </b> : <strong style="color:blue;">{{n1.uploaded_by}} </strong> 
+                    {%if n1.uploaded_by.pic %}
+                    <img style="widows: 50px; height:50px" class="rounded-circle" src="/media/{{n1.uploaded_by.pic}}" />
+                        {%endif%}
+                  </li>
+                </ul>
+                <div class="card-body">
+                   
+                    {%if n1.liked%}
+                    <a href="/social/mypost/unlike/{{n1.id}}" class="btn btn-danger"> UnLike..</a>
+                    {%else%}
+                    <a href="/social/mypost/like/{{n1.id}}" class="btn btn-success"> Like..</a>
+    
+                    {%endif%}
+
+                    {% if n1.likecount %}
+                    <span class="badge badge-info"><b> Likes {{n1.likecount}} </b></span>
+                    {%endif%}
+                </div>
+              </div>
+
+            </div>
+              {%endfor%}
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <!---<form enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <input value="{{ request.GET.si }}" type="text" name="si" />
+                 <input class="btn btn-dark" type="submit" value="search">
+               
+                 <a href="/social/mypost/create" class="btn btn-dark"><span>Create Post</span></a>
+            </form> 
+
+            {% for n1 in mypost_list %}
+            {{n1.subject}} :- {{n1.cr_date}}  -- {{n1.uploaded_by}}
+            {%if n1.uploaded_by.pic %}
+            <img style="widows: 50px; height:50px" class="rounded-circle" src="/media/{{n1.uploaded_by.pic}}" />
+                {%endif%}
+                <img class="img-fluid" src="/media/{{n1.pic}}" />
+                {%if n1.liked%}
+                <a href="/social/mypost/unlike/{{n1.id}}" class="btn btn-success"> UnLike..</a>
+                {%else%}
+                <a href="/social/mypost/like/{{n1.id}}" class="btn btn-success"> Like..</a>
+
+                {%endif%}
+               
+                <a href="/social/mypost/{{n1.id}}" class="btn btn-success"> Read More..</a>
+               
+
+        {% if user.is_superuser%}
+                <a href="/social/mypost/delete/{{n1.id}}" class="btn btn-danger"> Delete..</a>
+        {% endif %} 
+            {% if n1.likecount %}
+            <span class="badge badge-info"><b>Likes {{n1.likecount}} </b></span>
+            {%endif%}
+            
+            {%endfor%}
+            
+        
+        </div>
+                 
+    </div>
+</div> --->
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%block content%}
+{%load crispy_forms_tags%}
+
+<h1  style="color: darkgreen; text-align: center; font-family: cursive; font-size: xx-large;"><b>Create A Post</b></h1>
+<main class="p-5">
+        <div class="row p-5 text-justify">
+            <div class="col">
+                <div>
+                        <form enctype="multipart/form-data" method="post" style="background-color: gold;>
+                        {% csrf_token %}
+                        {{form | crispy}}<br>
+                        <input class="btn btn-dark" type="submit">
+                        </form>
+            </div>
+        </div>
+        
+</div>
+</main>
+{% endblock %}

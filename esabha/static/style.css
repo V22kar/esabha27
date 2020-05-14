@@ -1,0 +1,74 @@
+body{
+    background-image: url("/static/images/bodyimg.jpg");
+    font-size: 1.2em;
+    font-family: fantasy;
+    
+}
+
+h1{
+    color: red;
+}
+
+#myhead1{
+    font-size: 70px;
+    color: chocolate;
+    text-align: center;
+    text-shadow: 3px 3px 3px black;
+    font-family: cursive;
+    letter-spacing: 30px;
+    background-color: blanchedalmond;
+    border: 2px solid black;
+    border-radius: 20px;
+
+}
+
+.mydiv1{
+    color: chocolate;
+    width: 50%;
+}
+@media(max-width:600px){
+    .mydiv1{
+        background-color: aliceblue;
+        width: 50%;
+    }
+}
+
+
+#myheader1{
+height: 220px;
+
+}
+
+#headfix{
+    position: absolute;
+    top: 170px;
+    left: 25px;
+}
+#headfix h1{
+    font-size: 42px;
+    color:rgb(90, 4, 4);
+    text-align: center;
+    text-shadow: 2px 2px 2px rgb(46, 14, 233);
+    font-family: cursive;
+    letter-spacing: 30px;
+    font-weight: bolder;
+
+    
+}
+
+b{
+    color:blue;
+}
+
+.myfooler{
+ background-image: url("/static/images/bodyimg.jpg");
+ font-size: 15px;
+ color: brown;
+ text-shadow: 1px 1px 1px white;
+ font-family: cursive;
+ font-weight: bolder;
+
+}
+i{
+    color: brown;
+}

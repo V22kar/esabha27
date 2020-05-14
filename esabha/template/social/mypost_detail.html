@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{%block content%}
+{%load crispy_forms_tags%}
+
+<div class="p-5">
+    <h1  style="color: darkgreen; text-align: center; font-family: cursive; font-size: xx-large;"><b>My Post TimeLine</b></h1>
+    <div class="card" style="width: 50rem;">
+        <img class="card-img-top" src="/media/{{mypost.pic}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"> <b>Subject</b> : {{mypost.subject}}</h5>
+          
+          <p class="card-text"> <b>Date</b> : {{mypost.cr_date}} </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> <b>Message </b>: {{mypost.msg}}</li>
+         
+        </ul>
+            
+          
+          <a class="btn btn-dark" href="/social/mypost"> BACK </a>
+          
+            
+      </div>
+
+</div>
+
+
+
+
+
+
+<!---
+    
+    <h1><p><strong>Subject:{{mypost.subject}} :- </strong></p>
+        <p><strong>Date: {{mypost.cr_date}} </strong>
+            <p><strong>Message: {{mypost.msg}} </strong>
+
+            <img class="img-fluid" src="/media/{{mypost.pic}}" />
+
+        <a class="btn btn-dark" href="/social/mypost"> back ..</a>
+
+    </h1>
+    
+
+        </div>
+               --->        
+
+{% endblock %}

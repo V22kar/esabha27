@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{%block content%}
+{%load crispy_forms_tags%}
+
+<div class="p-5">
+    <h1  style="color: darkgreen; text-align: center; font-family: cursive; font-size: xx-large;"><b>My Post TimeLine</b></h1>
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <input value="{{ request.GET.si }}" type="text" name="si" />
+         <input class="btn btn-dark" type="submit" value="search">
+         <a href="/social/mypost/create" class="btn btn-dark"><span>Create Post</span></a>
+    </form>
+</div>
+
+<div class="row p-5">
+         {% for n1 in mypost_list %}
+        <div class="col-md-4">
+        <div class="card text-white bg-warning " style="width: 22rem; height:15rem;">
+        <div class="card-body">
+          <h2 class="card-text"><b>     {{n1.subject}}      </b></h2>
+
+          <h6 class="card-text"><b>      {{n1.cr_date}}  </b></h6>
+
+         <p class="card-text">  <a href="/social/mypost/{{n1.id}}" class="btn btn-success">  Read More</a></p>
+          
+         <p class="card-text">  <a href="/social/mypost/delete/{{n1.id}}" class="btn btn-danger"> Delete</a></p>
+        </div>
+      </div>
+</div>
+{%endfor%}
+</div>
+
+
+
+
+
+        <!-----
+
+         {% for n1 in mypost_list %}
+            <h1>{{n1.subject}} :- {{n1.cr_date}}
+            <a href="/social/mypost/{{n1.id}}" class="btn btn-success"> Read More..</a>
+            <a href="/social/mypost/delete/{{n1.id}}" class="btn btn-danger"> Delete..</a>
+        </h1>
+        {%endfor%}
+        ---->                 
+
+{% endblock %}
